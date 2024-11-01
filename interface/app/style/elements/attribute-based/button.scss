@@ -1,0 +1,156 @@
+@import '../../../mixins.scss';
+
+[data-china-payments-button] {
+  border: none;
+  height: inherit;
+  cursor: pointer;
+  color: var( --china-payments-accent-color );
+  padding: var( --china-payments-button-padding );
+  font-size: var( --china-payments-button-font-size );
+  font-weight: var( --china-payments-button-font-weight );
+  line-height: var( --china-payments-button-line-height );
+  box-shadow: none;
+  text-shadow: none;
+  margin: 0 3px 0 0;
+  display: inline-block;
+  vertical-align: bottom;
+  text-decoration: none !important;
+  -webkit-appearance: none;
+  text-align : center;
+  @include box-sizing( border-box );
+  @include border-radius( var( --china-payments-layout-border-radius ) );
+
+  .china-payments-application-loader-wrapper {
+    --china-payments-primary-color   : var( --china-payments-accent-color );
+    --china-payments-secondary-color : var( --china-payments-text-color-secondary );
+  }
+
+  &:hover {
+    opacity : 0.9;
+  }
+
+  &[data-china-payments-button-state="active"] {
+    cursor: default;
+    opacity : 0.9;
+  }
+
+  &[data-china-payments-button-state="highlight"] {
+    opacity : 0.5;
+  }
+
+  &[data-china-payments-button="primary"] {
+    color: var( --china-payments-accent-color ) !important;
+    background: var( --china-payments-primary-color) !important;
+
+    &:hover {
+      color: var( --china-payments-accent-color ) !important;
+    }
+  }
+
+  &[data-china-payments-button="primary_glass"] {
+    border : 1px solid var( --china-payments-primary-color );
+    color  : var( --china-payments-primary-color );
+
+    &:hover {
+      color      : var( --china-payments-accent-color );
+      background : var( --china-payments-primary-color);
+    }
+  }
+
+  &[data-china-payments-button="icon"] {
+    --china-payments-button-font-weight : normal;
+
+    color  : var( --china-payments-text-color-primary );
+    border : 1px solid var( --china-payments-icon-primary-color );
+
+    > svg {
+      margin : 0 var( --china-payments-spacing-type-block-element ) 0 0;
+    }
+  }
+
+  &[data-china-payments-button="icon"],
+  &[data-china-payments-button="download_file"] {
+    display     : flex;
+    align-items : center;
+
+    > svg {
+      fill : var( --china-payments-icon-primary-color );
+    }
+
+    &:hover {
+      --china-payments-icon-primary-color : var( --china-payments-primary-color );
+    }
+  }
+
+  &[data-china-payments-button="secondary"] {
+    color: var( --china-payments-accent-color ) !important;
+    background: var( --china-payments-secondary-color ) !important;
+
+    &:hover {
+      color: var( --china-payments-accent-color ) !important;
+    }
+  }
+
+  &[data-china-payments-button="success"] {
+    color: var( --china-payments-accent-color ) !important;
+    background: var( --china-payments-status-success-color ) !important;
+
+    &:hover {
+      color: var( --china-payments-accent-color ) !important;
+    }
+  }
+
+  &[data-china-payments-button="danger"] {
+    color: var( --china-payments-accent-color ) !important;
+    background: var( --china-payments-status-danger-color ) !important;
+
+    &:hover {
+      color: var( --china-payments-accent-color ) !important;
+    }
+  }
+
+  &[data-china-payments-button="warning"] {
+    color: var( --china-payments-accent-color ) !important;
+    background: var( --china-payments-status-warning-color ) !important;
+
+    &:hover {
+      color: var( --china-payments-accent-color ) !important;
+    }
+  }
+
+  &[data-china-payments-button="danger-plain"] {
+    color: var( --china-payments-status-danger-color ) !important;
+
+    &:hover {
+      background: var( --china-payments-status-danger-color ) !important;
+      color: var( --china-payments-accent-color ) !important;
+    }
+  }
+
+  &[data-china-payments-button="plain"] {
+    background: transparent !important;
+    color: var( --china-payments-text-color-secondary ) !important;
+    font-weight : bold;
+
+    &:hover, &[data-china-payments-button-state="active"] {
+      background: var( --china-payments-primary-color ) !important;
+      color: var( --china-payments-accent-color ) !important;
+    }
+  }
+
+  &[data-china-payments-button-size="large"] {
+    padding     : var( --china-payments-button-lg-padding );
+    font-size   : var( --china-payments-button-lg-font-size );
+    line-height : var( --china-payments-button-lg-line-height );
+  }
+
+  &[disabled="disabled"], &[disabled="disabled"]:hover {
+    background : var( --china-payments-layout-secondary-background-color ) !important;
+    color      : var( --china-payments-layout-primary-border-color ) !important;
+  }
+
+  &[disabled="disabled"] .china-payments-application-loader-wrapper {
+    --china-payments-primary-color   : var( --china-payments-layout-primary-border-color );
+    --china-payments-secondary-color : var( --china-payments-layout-primary-border-color );
+  }
+}

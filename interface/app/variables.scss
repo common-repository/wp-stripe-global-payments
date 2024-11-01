@@ -1,0 +1,124 @@
+@import 'mixins.scss';
+
+/**
+  * @author Robert Rusu
+  **/
+:root {
+  --china-payments-accent-color    : #ffffff;
+  --china-payments-primary-color   : #4671ac;
+  --china-payments-secondary-color : #8C99FF;
+
+  --china-payments-icon-primary-color   : rgb(68, 68, 68);
+
+  --china-payments-icon-secondary-background : #363636;
+  --china-payments-icon-secondary-stroke     : #ffffff;
+  --china-payments-icon-secondary-fill            : none;
+  --china-payments-icon-secondary-background-size : 30px;
+  --china-payments-icon-secondary-size            : 20px;
+  --china-payments-icon-secondary-margin          : 0 var( --china-payments-spacing-type-block-element ) 0 0;
+
+  --china-payments-text-color-primary    : #4671ac;
+
+  --china-payments-layout-primary-background-color    : #FFFFFF;
+  --china-payments-layout-secondary-background-color  : #D5DBE0;
+
+  --china-payments-layout-primary-border-color    : #E1E7ED;
+  --china-payments-layout-secondary-border-color  : #D5DBE0;
+  --china-payments-layout-tertiary-border-color   : #838C92;
+
+  --china-payments-status-neutral-background-color : rgba( 118, 118, 118, 0.05 );
+  --china-payments-status-neutral-color            : #767676;
+
+  --china-payments-status-warning-background-color : rgba( 249, 148, 92, 0.05 );
+  --china-payments-status-warning-color            : #F9945C;
+
+  --china-payments-status-info-background-color : rgba( 11, 124, 192, 0.05 );
+  --china-payments-status-info-color            : #0B7CC0;
+
+  --china-payments-status-success-background-color : rgba( 43, 191, 22, 0.05 );
+  --china-payments-status-success-color            : #2BBF16;
+
+  --china-payments-status-danger-background-color  : rgba( 244, 67, 54, 0.05 );
+  --china-payments-status-danger-color             : #F44336;
+
+  --china-payments-font-family : inherit;
+
+  --china-payments-spacing-type-primary    : 32px;
+  --china-payments-spacing-type-secondary  : 24px;
+  --china-payments-spacing-type-tertiary   : 16px;
+
+  --china-payments-spacing-type-separator-wide : 40px;
+  --china-payments-spacing-type-block-element  : 10px;
+  --china-payments-spacing-type-block-wide     : 18px;
+
+  --china-payments-layout-background    : var( --china-payments-layout-primary-background-color );
+  --china-payments-layout-border        : 1px solid var( --china-payments-layout-primary-border-color );
+  --china-payments-layout-box-shadow    : 0 0 20px rgba(40, 84, 115, 0.11);
+  --china-payments-layout-padding       : 32px;
+  --china-payments-layout-border-radius : 5px;
+
+  --china-payments-text-default-font-size   : 18px;
+  --china-payments-text-default-font-style  : normal;
+  --china-payments-text-default-font-weight : normal;
+  --china-payments-text-default-line-height : 28px;
+  --china-payments-text-default-color       : var( --china-payments-text-color-primary );
+
+  --china-payments-text-small-font-size   : 14px;
+  --china-payments-text-small-font-style  : normal;
+  --china-payments-text-small-font-weight : normal;
+  --china-payments-text-small-line-height : 20px;
+  --china-payments-text-small-color       : var( --china-payments-text-color-primary );
+
+  --china-payments-text-medium-font-size   : 16px;
+  --china-payments-text-medium-font-style  : normal;
+  --china-payments-text-medium-font-weight : normal;
+  --china-payments-text-medium-line-height : 24px;
+  --china-payments-text-medium-color       : var( --china-payments-text-color-primary );
+
+  --china-payments-text-standard-font-size   : 18px;
+  --china-payments-text-standard-font-style  : normal;
+  --china-payments-text-standard-font-weight : normal;
+  --china-payments-text-standard-line-height : 24px;
+  --china-payments-text-standard-color       : var( --china-payments-text-color-primary );
+
+  --china-payments-text-title-font-size   : 24px;
+  --china-payments-text-title-font-style  : normal;
+  --china-payments-text-title-font-weight : bold;
+  --china-payments-text-title-line-height : 32px;
+  --china-payments-text-title-color       : var( --china-payments-text-color-primary );
+
+  --china-payments-button-font-size   : 14px;
+  --china-payments-button-font-weight : bold;
+  --china-payments-button-line-height : 24px;
+  --china-payments-button-padding     : 4px 16px;
+
+  --china-payments-button-lg-padding     : 11px 16px 12px 16px;
+  --china-payments-button-lg-font-size   : 14px;
+  --china-payments-button-lg-line-height : 17px;
+}
+
+@mixin __china_payments_medium_width_variables() {
+  --china-payments-spacing-type-primary    : 20px;
+  --china-payments-spacing-type-secondary  : 20px;
+  --china-payments-spacing-type-tertiary   : 12px;
+
+  --china-payments-spacing-type-separator-wide : 50px;
+
+  --china-payments-layout-padding : 20px;
+
+  --china-payments-text-default-font-size   : 16px;
+  --china-payments-text-default-line-height : 27px;
+
+  --china-payments-text-title-font-size   : 24px;
+  --china-payments-text-title-line-height : 30px;
+
+  --china-payments-button-lg-padding     : 14px 16px;
+  --china-payments-button-lg-font-size   : 16px;
+  --china-payments-button-lg-line-height : 19px;
+}
+
+@media ( max-width: $break_point_large_width ) {
+  :root {
+    @include __china_payments_medium_width_variables;
+  }
+}

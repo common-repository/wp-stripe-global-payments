@@ -1,0 +1,60 @@
+@mixin china-payments-administration-panel-tool-title() {
+  @include china-payments-font-title();
+
+  text-align     : left;
+  margin         : 0 0 var( --china-payments-spacing-type-block-element ) 0;
+  padding        : 0 0 var( --china-payments-spacing-type-block-element ) 0;
+  border-bottom  : 1px solid var( --china-payments-layout-secondary-border-color );
+}
+
+@mixin china-payments-administration-panel-tool-description() {
+  @include china-payments-font-default();
+
+  text-align     : center;
+  margin         : 0 0 var( --china-payments-spacing-type-secondary ) 0;
+  padding        : 0;
+}
+
+@mixin china-payments-administration-panel-tool-field-container( $container_attribute_prefix : '', $label_size : 150px ) {
+  padding        : 0 var( --china-payments-spacing-type-secondary ) 0 0;
+  margin         : 0 0 var( --china-payments-spacing-type-secondary ) 0;
+
+  --china-payments-layout-primary-background-color : var( --china-payments-layout-tertiary-background-color );
+
+  > label {
+    display       : block;
+    padding       : 0;
+    width         : 100%;
+    margin        : 0 0 var( --china-payments-spacing-type-block-element ) 0;
+
+    --china-payments-text-default-font-weight : bold;
+
+    @include china-payments-font-default();
+    @include box-sizing( border-box );
+  }
+
+  > input[type="text"],
+  > input[type="date"],
+  > select {
+    width       : 100%;
+    max-width   : 100%;
+    background  : var( --china-payments-layout-secondary-background-color );
+    border      : 1px solid var( --china-payments-layout-primary-border-color );
+    padding     : var( --china-payments-spacing-type-block-element );
+    margin      : 0;
+
+    @include china-payments-font-default();
+    @include box-sizing( border-box );
+  }
+
+  > select {
+    @include china-payments-element-select-arrow();
+  }
+
+  @if $container_attribute_prefix != '' {
+    [#{$container_attribute_prefix}-container="field_description"] {
+      margin  : var( --china-payments-spacing-type-block-element ) 0 0 0;
+      @include china-payments-font-medium();
+    }
+  }
+}

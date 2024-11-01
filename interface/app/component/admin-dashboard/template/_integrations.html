@@ -1,0 +1,38 @@
+<div data-china-payments-component-admin-dashboard-section="integration_list"
+     data-china-payments-template-count-odd="{{ data.integration_list.length % 2 === 1 ? 1 : 0 }}">
+
+  <# _.each( data.integration_list, function( integration_information ) { #>
+    <div data-china-payments-component-admin-dashboard-section="integration_information">
+      <img src="{{ integration_information.logo_url }}" alt="{{ integration_information.name }}"/>
+
+      <p>
+        {{ integration_information.name }}
+
+        <# if( integration_information.is_active ) { #>
+          <img src="{{{ ChinaPayments.getComponentAssetPath( 'admin-dashboard', 'img/checkmark-integration-active.png' ) }}}" alt="checkmark"/>
+        <# } #>
+      </p>
+
+      <# if( !integration_information.is_active ) { #>
+        <# if( integration_information.is_installed ) { #>
+          <span data-china-payments-component-admin-dashboard-trigger="activate_plugin_{{ integration_information.plugin_slug }}">
+            {{ data.lang.integration_active.replace( "%s", integration_information.name ) }}
+          </span>
+        <# } else if( typeof integration_information.can_install !== 'undefined' && integration_information.can_install ) { #>
+          <span data-china-payments-component-admin-dashboard-trigger="install_plugin_{{ integration_information.plugin_slug }}">
+            {{ data.lang.integration_install.replace( "%s", integration_information.name ) }}
+          </span>
+        <# } #>
+      <# } else { #>
+        <# if( typeof integration_information.actions !== "undefined" ) { #>
+          <# _.each( integration_information.actions, function( text, link ) { #>
+            <a href="{{ link }}" target="_blank">{{ text }}</a>
+          <# }) #>
+        <# } #>
+      <# } #>
+    </div>
+  <# }) #>
+</div>
+
+<div data-china-payments-component="admin-marketing-notifications"
+     data-china-payments-component-args="{{{ _.escape( JSON.stringify( { area_slug : 'integrations' } ) ) }}}"></div>

@@ -1,0 +1,203 @@
+$break_point_xx_large_width  : 1632px;
+$break_point_x_large_width  : 1100px;
+$break_point_large_width   : 992px;
+$break_point_medium_width  : 767px;
+$break_point_small_width   : 480px;
+$break_point_x_small_width : 320px;
+
+@import "style/mixins/font.scss";
+@import "style/mixins/element.scss";
+@import "style/mixins/administration.scss";
+
+@mixin variables-payment-method-section-items() {
+  --china-payments-element-form-payment-method-per-row  : 3;
+  --china-payments-element-form-payment-method-spacing  : 10px;
+
+  --china-payments-element-form-payment-method-option-border-radius : 0px 0px 0px 0px;
+  --china-payments-element-form-payment-method-option-border-top : 0;
+  --china-payments-element-form-payment-method-option-border-right : 0;
+  --china-payments-element-form-payment-method-option-border-bottom : 2px solid transparent;
+  --china-payments-element-form-payment-method-option-border-left : 0;
+  --china-payments-element-form-payment-method-option-padding     : 5px;
+  --china-payments-element-form-payment-method-option-image-height: 40px;
+
+  --china-payments-element-form-payment-method-option-active-border-radius : 0px 0px 0px 0px;
+  --china-payments-element-form-payment-method-option-active-border-top : 0;
+  --china-payments-element-form-payment-method-option-active-border-right : 0;
+  --china-payments-element-form-payment-method-option-active-border-bottom : 2px solid #2676f1;
+  --china-payments-element-form-payment-method-option-active-border-left : 0;
+  --china-payments-element-form-payment-method-option-active-padding     : 5px;
+}
+
+@mixin payment-method-section-items() {
+  border-top    : var( --china-payments-element-form-payment-method-option-border-top );
+  border-right  : var( --china-payments-element-form-payment-method-option-border-right );
+  border-bottom : var( --china-payments-element-form-payment-method-option-border-bottom );
+  border-left   : var( --china-payments-element-form-payment-method-option-border-left );
+  padding       : var( --china-payments-element-form-payment-method-option-padding );
+  display       : flex;
+  align-content : center;
+
+  @include border-radius( var( --china-payments-element-form-payment-method-option-border-radius ) );
+
+  &[data-china-payments-interaction-state="inactive"] {
+    cursor : pointer;
+  }
+
+  &[data-china-payments-interaction-state="active"] {
+    border-top    : var( --china-payments-element-form-payment-method-option-active-border-top );
+    border-right  : var( --china-payments-element-form-payment-method-option-active-border-right );
+    border-bottom : var( --china-payments-element-form-payment-method-option-active-border-bottom );
+    border-left   : var( --china-payments-element-form-payment-method-option-active-border-left );
+    padding       : var( --china-payments-element-form-payment-method-option-active-padding );
+
+    @include border-radius( var( --china-payments-element-form-payment-method-option-active-border-radius ) );
+  }
+
+  &[data-china-payments-interaction-state="disabled"] {
+    &[data-china-payments-hint]::after {
+      background : var( --china-payments-element-form-payment-method-option-border-color );
+      color: #fff;
+      font-size: 14px;
+      padding: 10px;
+    }
+
+    > img {
+      opacity : 0.7;
+      cursor : not-allowed;
+    }
+  }
+
+  > img {
+    display : block;
+    margin  : auto;
+    height  : var( --china-payments-element-form-payment-method-option-image-height );
+  }
+}
+
+@mixin layout-block-box() {
+  background  : var( --china-payments-layout-background );
+  border      : var( --china-payments-layout-border );
+  padding     : var( --china-payments-layout-padding );
+
+  @include box-shadow( var( --china-payments-layout-box-shadow ) );
+  @include border-radius( var( --china-payments-layout-border-radius ) );
+}
+
+@mixin layout-content-grid() {
+  display               : grid;
+  grid-template-columns : 100%;
+  gap                   : var( --china-payments-spacing-type-primary ) var( --china-payments-spacing-type-primary );
+
+  &[data-china-payments-media-query-breakpoints~="medium"] {
+    &[data-china-payments-media-query-breakpoints~="large"][data-china-payments-per-row="4"] {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    &:not( [data-china-payments-media-query-breakpoints~="large"] ) {
+      &[data-china-payments-per-row="4"] {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    &[data-china-payments-per-row="3"] {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    &[data-china-payments-per-row="2"] {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &:not( [data-china-payments-media-query-breakpoints~="medium"] ) {
+    &[data-china-payments-per-row="4"],
+    &[data-china-payments-per-row="3"],
+    &[data-china-payments-per-row="2"] {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &:not( [data-china-payments-media-query-breakpoints~="med_small"] ) {
+    &[data-china-payments-per-row="4"],
+    &[data-china-payments-per-row="3"],
+    &[data-china-payments-per-row="2"] {
+      grid-template-columns : 100%;
+    }
+  }
+
+  &[data-china-payments-per-row="1"] {
+    grid-template-columns : 100% !important;
+  }
+}
+
+@mixin china-payments-icon-primary() {
+  &[data-china-payments-type="fill"] {
+    fill   : var( --china-payments-icon-primary-color );
+  }
+
+  &[data-china-payments-type="stroke"] {
+    stroke : var( --china-payments-icon-primary-color );
+  }
+}
+
+@mixin china-payments-icon-secondary-container() {
+  background    : var( --china-payments-icon-secondary-background );
+  margin        : var( --china-payments-icon-secondary-margin );
+  display       : flex;
+  align-items   : center;
+  width         : var( --china-payments-icon-secondary-background-size );
+  height        : var( --china-payments-icon-secondary-background-size );
+
+  @include border-radius( 50% );
+
+  > svg {
+    width        : var( --china-payments-icon-secondary-size );
+    height       : var( --china-payments-icon-secondary-size );
+    flex-shrink  : 0;
+    margin       : 0 auto;
+    stroke       : var( --china-payments-icon-secondary-stroke );
+    fill         : var( --china-payments-icon-secondary-fill );
+  }
+}
+
+@mixin box-sizing ( $v: border-box ) {
+  -webkit-box-sizing : $v;
+  box-sizing         : $v;
+}
+
+@mixin box-shadow ($v ) {
+  -webkit-box-shadow : $v;
+  box-shadow         : $v;
+}
+
+@mixin border-radius ($v ) {
+  -webkit-border-radius : $v;
+  border-radius         : $v;
+}
+
+@mixin transform ($v ) {
+  -ms-transform     : $v;
+  -webkit-transform : $v;
+  transform         : $v;
+}
+
+@mixin transition ($v ) {
+  -webkit-transition : $v;
+  -o-transition      : $v;
+  transition         : $v;
+}
+
+@mixin animation ($v ) {
+  -webkit-animation : $v;
+  -moz-animation    : $v;
+  -o-animation      : $v;
+  animation         : $v;
+}
+
+@mixin user-select( $v ) {
+  -webkit-touch-callout : $v;
+  -webkit-user-select   : $v;
+  -moz-user-select      : $v;
+  -ms-user-select       : $v;
+  user-select           : $v;
+}

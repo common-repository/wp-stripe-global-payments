@@ -1,0 +1,138 @@
+@import '../../mixins.scss';
+
+@font-face {
+  font-family: Graphik;
+  src: url("../../fonts/graphik-regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Graphik;
+  font-weight : 200;
+  src: url("../../fonts/graphik-extra-light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Graphik;
+  font-weight : 300;
+  src: url("../../fonts/graphik-light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Graphik;
+  font-weight : 500;
+  src: url("../../fonts/graphik-medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Graphik;
+  font-weight : 600;
+  src: url("../../fonts/graphik-semi-bold.otf") format("opentype");
+}
+
+[data-china-payments-component="admin-form"] {
+  --china-payments-font-family : Graphik, serif;
+
+  font-family : Graphik, serif;
+  display : flex;
+  flex-direction : column;
+  
+  > h2 {
+    @include china-payments-font-title();
+
+    margin : 0 0 var( --china-payments-spacing-type-secondary ) 0;
+
+    > span {
+      &[data-china-payments-mode="test"] {
+        color: #f1c40f;
+      }
+
+      &[data-china-payments-mode="live"] {
+        color: #2ecc71;
+      }
+    }
+  }
+
+  > [data-china-payments-component-admin-form-section="description"] {
+    @include china-payments-font-medium();
+
+    margin : 0 0 var( --china-payments-spacing-type-secondary ) 0;
+  }
+
+  > form {
+    display : flex;
+    flex-direction : column;
+
+    > [data-china-payments-component-admin-form-section="field_row"] {
+      margin : 0 0 var( --china-payments-spacing-type-tertiary ) 0;
+
+      > label {
+        --china-payments-text-standard-font-weight : bold;
+
+        padding     : 0;
+        display     : block;
+        margin      : 0 0 var( --china-payments-spacing-type-block-element ) 0;
+        @include box-sizing( border-box );
+        @include china-payments-font-standard();
+
+        > [data-china-payments-component-admin-form-section="field_required"] {
+          color : var( --china-payments-status-danger-color );
+        }
+      }
+
+      > input[type="text"],
+      >  select,
+      > textarea {
+        max-width   : 100%;
+        width       : 100%;
+        border      : 1px solid var( --china-payments-layout-secondary-border-color );
+        color       : var( --china-payments-text-color-primary );
+        padding     : var( --china-payments-spacing-type-block-element );
+        background  : transparent;
+        margin      : 0;
+
+        @include china-payments-font-standard();
+        @include box-sizing( border-box );
+        @include box-shadow( none );
+        @include border-radius( var( --china-payments-layout-border-radius ) );
+
+        &:focus,
+        &:hover {
+          outline: none;
+          border-color: var( --china-payments-text-color-primary );
+        }
+
+        &[disabled="disabled"] {
+          cursor     : not-allowed;
+          background : var( --china-payments-layout-secondary-background-color );
+          resize     : none;
+        }
+      }
+
+      > [data-china-payments-component-admin-form-section="description"] {
+        @include china-payments-font-standard();
+
+        > p {
+          @include china-payments-font-standard();
+          margin : var( --china-payments-spacing-type-block-element ) 0 0 0;
+        }
+      }
+
+      select {
+        @include china-payments-element-select-arrow();
+      }
+    }
+
+    > [data-china-payments-component-admin-form-section="operations_row"] {
+      display: flex;
+      flex-direction: row;
+
+      > [data-china-payments-button] {
+        padding : 10px 20px;
+        font-size : 16px;
+        margin : 0 auto;
+
+        @include border-radius( var( --china-payments-layout-border-radius ) );
+      }
+    }
+  }
+}

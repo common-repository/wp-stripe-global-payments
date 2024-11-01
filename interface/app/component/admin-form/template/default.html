@@ -1,0 +1,58 @@
+<h2>{{{ data.title }}}</h2>
+
+<# if( data.description !== '' ) { #>
+  <div data-china-payments-component-admin-form-section="description">{{{ data.description }}}</div>
+<# } #>
+
+<form method="POST">
+  <# _.each( data.fields, function( field_information ) { #>
+    <# let is_required = ( typeof field_information.is_required !== 'undefined' && field_information.is_required ? 1 : 0 ); #>
+
+    <div data-china-payments-component-admin-form-section="field_row">
+      <label>
+        {{ field_information.label }}
+        <# if( is_required ) { #>
+          <span data-china-payments-component-admin-form-section="field_required">*</span>
+        <# } #>
+      </label>
+
+      <# if( typeof field_information.type !== "undefined" && field_information.type === "select" ) { #>
+        <select name="{{ field_information.name }}">
+          <# _.each( field_information.options, function( label, value ) { #>
+            <option value="{{ value }}"
+               {{{ typeof field_information.value !== "undefined" && field_information.value === value ? 'selected="selected"' : '' }}}
+            >{{ label }}</option>
+          <# }) #>
+        </select>
+      <# } else if( typeof field_information.type !== "undefined" && field_information.type === "textarea_disabled" ) { #>
+        <textarea disabled="disabled">{{ typeof field_information.value === 'undefined' ? '' : field_information.value }}</textarea>
+      <# } else { #>
+        <input type="text"
+               name="{{ field_information.name }}"
+               autocomplete="off"
+               autocapitalize="none"
+               spellcheck="false"
+               <# if( is_required ) { #>
+               required="required"
+               <# } #>
+               value="{{ typeof field_information.value === 'undefined' ? '' : field_information.value }}"/>
+      <# } #>
+
+      <# if( typeof field_information.description !== "undefined" ) { #>
+        <div data-china-payments-component-admin-form-section="description">{{{ field_information.description }}}</div>
+      <# } #>
+    </div>
+  <# }) #>
+
+  <div data-china-payments-component-admin-form-section="operations_row">
+    <# _.each( data.operations, function( operation_information ) { #>
+      <# if( operation_information.type === 'save' ) { #>
+        <input type="submit"
+               name="save"
+               value="{{ operation_information.label }}"
+               data-china-payments-button="primary"/>
+      <# } #>
+    <# }) #>
+  </div>
+</form>
+

@@ -1,0 +1,576 @@
+# Copyright (C) 2022 Gaucho Plugins
+# This file is distributed under the GPLv3.
+msgid ""
+msgstr ""
+"Project-Id-Version: China Payments Plugin 3.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/china-payments-plugin\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2022-03-09T20:30:47+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.5.0\n"
+"X-Domain: china-payments\n"
+
+#. Plugin Name of the plugin
+msgid "China Payments Plugin"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://chinapaymentsplugin.com"
+msgstr ""
+
+#. Description of the plugin
+msgid "Easily accept WeChat, Alipay & Credit Card payments from Chinese customers in a simple payment form."
+msgstr ""
+
+#. Author of the plugin
+msgid "Gaucho Plugins"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://gauchoplugins.com"
+msgstr ""
+
+#: app/AdminController.php:103
+#: app/AdminController.php:119
+msgid "Invalid Request"
+msgstr ""
+
+#: app/AdminController.php:110
+msgid "Did not manage to fix Table Structure"
+msgstr ""
+
+#: app/API/Features.php:49
+msgid "First Name"
+msgstr ""
+
+#: app/API/Features.php:50
+msgid "Last Name"
+msgstr ""
+
+#: app/API/Features.php:51
+msgid "Email Address"
+msgstr ""
+
+#: app/Controller.php:81
+msgid "China Payments %s Mode"
+msgstr ""
+
+#: app/Migration.php:126
+msgid "Migration currently marked in progress, it started %s seconds ago."
+msgstr ""
+
+#: app/Migration.php:127
+#: app/Migration.php:152
+#: app/Migration/Admin.php:184
+msgid "Retry"
+msgstr ""
+
+#: app/Migration.php:130
+msgid "This version has already been installed, skipping"
+msgstr ""
+
+#: app/Migration.php:151
+msgid "File not found %s."
+msgstr ""
+
+#: app/Migration/Admin.php:38
+msgid " %s Migration"
+msgstr ""
+
+#: app/Migration/Admin.php:39
+msgid "Migration"
+msgstr ""
+
+#: app/Migration/Admin.php:48
+msgid "%s Migration"
+msgstr ""
+
+#: app/Migration/Admin.php:51
+msgid "You're about to upgrade to %s version %s this version brings in database upgrades."
+msgstr ""
+
+#: app/Migration/Admin.php:52
+msgid "Please do not close this screen after pressing continue, until the update is completed."
+msgstr ""
+
+#: app/Migration/Admin.php:53
+msgid "Continue"
+msgstr ""
+
+#: app/Migration/Admin.php:161
+msgid "%s Database Upgrade"
+msgstr ""
+
+#: app/Migration/Admin.php:163
+msgid "Click here to continue"
+msgstr ""
+
+#: app/Migration/Admin.php:173
+msgid "Database successfully updated. Continue to: "
+msgstr ""
+
+#: app/Migration/Admin.php:175
+msgid "Manage Settings"
+msgstr ""
+
+#: app/Migration/Admin.php:183
+msgid "Could not determine the migration version."
+msgstr ""
+
+#: app/Migration/Admin.php:191
+msgid "Processing File: %s"
+msgstr ""
+
+#: app/Migration/Admin.php:195
+msgid "Retry Attempt : %s; Current Version : %s"
+msgstr ""
+
+#: app/Migration/Admin.php:205
+msgid "Skipped Migration file for version: %s, check your Platform Health Report for possible issues."
+msgstr ""
+
+#: app/Model/Skeleton.php:41
+msgid "Failed to find %s."
+msgstr ""
+
+#: app/Model/Skeleton.php:226
+msgid "Failed to insert %s."
+msgstr ""
+
+#: app/Model/Skeleton.php:294
+msgid "Failed to update %s for id %s."
+msgstr ""
+
+#: app/PaymentGateway.php:13
+#: app/PaymentGateway/Stripe.php:153
+msgid "Stripe"
+msgstr ""
+
+#: app/PaymentGateway/Stripe.php:25
+msgid "Could not determine the connection URL, please try again later."
+msgstr ""
+
+#: app/PaymentGateway/Stripe.php:161
+msgid "Stripe has partnered with Alipay and WeChat Pay to allow merchants to accept payments from Chinese customers. Connect your Stripe account in a few clicks, and then you can activate WeChat Pay and Alipay."
+msgstr ""
+
+#: app/PaymentGateway/Stripe.php:209
+#: app/PaymentGateway/Stripe.php:213
+#: app/ThirdPartyIntegration/PaymentPage.php:34
+#: app/ThirdPartyIntegration/PaymentPage.php:38
+#: app/ThirdPartyIntegration/PaymentPage.php:89
+#: app/ThirdPartyIntegration/WooCommerce/Gateway/Stripe/AliPay.php:35
+msgid "Alipay"
+msgstr ""
+
+#: app/PaymentGateway/Stripe.php:216
+#: app/ThirdPartyIntegration/PaymentPage.php:41
+msgid "Alipay enables Chinese consumers to pay directly via online transfer from their bank account. Customers are redirected to Alipay's payment page to log in and approve payments."
+msgstr ""
+
+#: app/PaymentGateway/Stripe.php:217
+#: app/PaymentGateway/Stripe.php:228
+msgid "Check country availability >"
+msgstr ""
+
+#: app/PaymentGateway/Stripe.php:220
+#: app/PaymentGateway/Stripe.php:224
+#: app/ThirdPartyIntegration/PaymentPage.php:49
+#: app/ThirdPartyIntegration/PaymentPage.php:53
+#: app/ThirdPartyIntegration/PaymentPage.php:99
+#: app/ThirdPartyIntegration/WooCommerce/Gateway/Stripe/WeChat.php:35
+msgid "WeChat Pay"
+msgstr ""
+
+#: app/PaymentGateway/Stripe.php:227
+#: app/ThirdPartyIntegration/PaymentPage.php:56
+msgid "WeChat Pay enables Chinese consumers to pay directly via online transfer from their account. Customers are given a QR Code to scan using their WeChat mobile application to approve payments."
+msgstr ""
+
+#: app/PaymentGateway/Stripe.php:237
+msgid "Webhook Settings (Recommended)"
+msgstr ""
+
+#: app/PaymentGateway/Stripe.php:238
+msgid "Webhook Settings"
+msgstr ""
+
+#: app/PaymentGateway/Stripe.php:242
+#: app/PaymentGateway/Stripe.php:265
+msgid "Create a webhook in the %s, events to send : %s"
+msgstr ""
+
+#: app/PaymentGateway/Stripe.php:243
+#: app/PaymentGateway/Stripe.php:266
+msgid "Stripe Webhooks Settings"
+msgstr ""
+
+#: app/PaymentGateway/Stripe.php:248
+#: app/PaymentGateway/Stripe.php:271
+msgid "Webhook URL"
+msgstr ""
+
+#: app/PaymentGateway/Stripe.php:255
+#: app/PaymentGateway/Stripe.php:278
+msgid "Webhook Signing Secret"
+msgstr ""
+
+#: app/PaymentGateway/Stripe.php:316
+#: app/RestAPI/Administration.php:154
+#: app/RestAPI/PaymentGateway.php:93
+#: app/RestAPI/PaymentGateway.php:118
+#: app/RestAPI/PaymentGateway.php:148
+#: app/RestAPI/PaymentGateway.php:179
+#: app/RestAPI/PaymentGateway.php:210
+#: app/RestAPI/PaymentGateway.php:258
+#: app/RestAPI/Plugin.php:44
+#: app/RestAPI/Plugin.php:103
+#: app/RestAPI/Tagging.php:47
+msgid "Missing request param %s"
+msgstr ""
+
+#: app/PaymentGateway/Stripe.php:325
+msgid "Invalid email address provided : %s"
+msgstr ""
+
+#: app/RestAPI/Administration.php:57
+#: app/ThirdPartyIntegration/WooCommerce.php:66
+msgid "Upgrade >"
+msgstr ""
+
+#: app/RestAPI/Administration.php:58
+msgid "To accept payments with %s, please %s"
+msgstr ""
+
+#: app/RestAPI/Administration.php:60
+msgid "Payment Gateways"
+msgstr ""
+
+#: app/RestAPI/Administration.php:61
+msgid "Integrations"
+msgstr ""
+
+#: app/RestAPI/Administration.php:62
+msgid "Optimizations"
+msgstr ""
+
+#: app/RestAPI/Administration.php:64
+msgid "Configure"
+msgstr ""
+
+#: app/RestAPI/Administration.php:65
+msgid "Configured"
+msgstr ""
+
+#: app/RestAPI/Administration.php:66
+msgid "%s Connection Settings"
+msgstr ""
+
+#: app/RestAPI/Administration.php:68
+msgid "Connect with %s"
+msgstr ""
+
+#: app/RestAPI/Administration.php:70
+msgid "Test"
+msgstr ""
+
+#: app/RestAPI/Administration.php:71
+msgid "Live"
+msgstr ""
+
+#: app/RestAPI/Administration.php:73
+msgid "Save Settings"
+msgstr ""
+
+#: app/RestAPI/Administration.php:75
+msgid "Payment Methods"
+msgstr ""
+
+#: app/RestAPI/Administration.php:76
+msgid "Status"
+msgstr ""
+
+#: app/RestAPI/Administration.php:77
+msgid "This payment method requires a HTTPS connection for both live & testing"
+msgstr ""
+
+#: app/RestAPI/Administration.php:79
+msgid "WooCommerce"
+msgstr ""
+
+#: app/RestAPI/Administration.php:80
+msgid "Payment Page"
+msgstr ""
+
+#: app/RestAPI/Administration.php:81
+msgid "Install %s Now"
+msgstr ""
+
+#: app/RestAPI/Administration.php:82
+msgid "Active %s Now"
+msgstr ""
+
+#: app/RestAPI/Administration.php:84
+msgid "< %s"
+msgstr ""
+
+#: app/RestAPI/Administration.php:85
+msgid "Next, %s >"
+msgstr ""
+
+#: app/RestAPI/Administration.php:86
+msgid "Skip to %s >"
+msgstr ""
+
+#: app/RestAPI/Administration.php:87
+msgid "Exit Quick Setup >"
+msgstr ""
+
+#: app/RestAPI/Administration.php:88
+msgid "Return to Quick Setup >"
+msgstr ""
+
+#: app/RestAPI/Administration.php:90
+msgid "Checkout Optimizations coming soon!"
+msgstr ""
+
+#: app/RestAPI/Administration.php:92
+msgid "Your website URL contains invalid character(s) : %s which will cause problems with the %s connection."
+msgstr ""
+
+#: app/RestAPI/Administration.php:93
+msgid "Your SSL security certificate is not properly configured on your site. Please configure SSL in order to connect %s. Your hosting provider can help with this."
+msgstr ""
+
+#: app/RestAPI/Administration.php:102
+msgid "Connect your Payment Gateway"
+msgstr ""
+
+#: app/RestAPI/Administration.php:103
+msgid "Welcome to %s"
+msgstr ""
+
+#: app/RestAPI/Administration.php:104
+#: app/RestAPI/Administration.php:111
+#: app/RestAPI/Administration.php:119
+msgid "Manage Gateways"
+msgstr ""
+
+#: app/RestAPI/Administration.php:110
+msgid "Next, Connect Stripe in Test Mode"
+msgstr ""
+
+#: app/RestAPI/Administration.php:118
+msgid "Next, Connect Stripe in Live Mode"
+msgstr ""
+
+#: app/RestAPI/Administration.php:126
+msgid "Next, Select Integrations"
+msgstr ""
+
+#: app/RestAPI/Administration.php:127
+msgid "Select Integrations"
+msgstr ""
+
+#: app/RestAPI/PaymentGateway.php:106
+#: app/RestAPI/PaymentGateway.php:129
+#: app/RestAPI/PaymentGateway.php:159
+#: app/RestAPI/PaymentGateway.php:190
+msgid "Invalid payment gateway %s"
+msgstr ""
+
+#: app/RestAPI/PaymentGateway.php:269
+#: app/RestAPI/PaymentGateway.php:279
+msgid "Invalid Credentials..."
+msgstr ""
+
+#: app/RestAPI/Plugin.php:53
+msgid "Plugin install not allowed."
+msgstr ""
+
+#: app/RestAPI/Plugin.php:112
+msgid "Plugin activate not allowed."
+msgstr ""
+
+#: app/RestAPI/Plugin.php:126
+msgid "Plugin Activation not allowed."
+msgstr ""
+
+#: app/RestAPI/Tagging.php:56
+msgid "Invalid email address provided."
+msgstr ""
+
+#: app/RestAPI/Tagging.php:76
+msgid "An unexpected error has happened, please try again"
+msgstr ""
+
+#: app/RestAPI/Webhook.php:36
+msgid "%s not found"
+msgstr ""
+
+#: app/RestAPI/Webhook.php:58
+msgid "Invalid Payload"
+msgstr ""
+
+#: app/RestAPI/Webhook.php:66
+msgid "Event not tracked, %s metadata not attached"
+msgstr ""
+
+#: app/RestAPI/Webhook.php:74
+msgid "Event not tracked, %s metadata does not match"
+msgstr ""
+
+#: app/RestAPI/Webhook.php:82
+msgid "Event not tracked"
+msgstr ""
+
+#: app/RestAPI/Webhook.php:96
+msgid "Order Payment Intent Failed"
+msgstr ""
+
+#: app/RestAPI/Webhook.php:108
+msgid "Handled %s Callback"
+msgstr ""
+
+#: app/RestAPI/Webhook.php:115
+msgid "Handled Callback"
+msgstr ""
+
+#: app/SiteHealth.php:24
+msgid "%s - Database Integrity"
+msgstr ""
+
+#: app/SiteHealth.php:49
+msgid "%s uses custom tables to store data efficiently."
+msgstr ""
+
+#: app/SiteHealth.php:55
+msgid "%s - Valid DB Table Structure."
+msgstr ""
+
+#: app/SiteHealth.php:58
+#: app/SiteHealth.php:67
+#: app/SiteHealth.php:99
+#: app/SiteHealth.php:108
+msgid "Critical"
+msgstr ""
+
+#: app/SiteHealth.php:64
+msgid "%s - Invalid DB Table Structure."
+msgstr ""
+
+#: app/SiteHealth.php:73
+msgid "Fix Table Integrity"
+msgstr ""
+
+#: app/SiteHealth.php:88
+msgid "%s listens to Stripe Webhook callbacks to know when payments are completed."
+msgstr ""
+
+#: app/SiteHealth.php:96
+msgid "%s - Stripe %s Webhook created."
+msgstr ""
+
+#: app/SiteHealth.php:105
+msgid "%s - Stripe %s Webhook missing."
+msgstr ""
+
+#: app/SiteHealth.php:114
+msgid "Create Webhook"
+msgstr ""
+
+#: app/ThirdPartyIntegration/WooCommerce.php:63
+msgid "Looking to accept WeChat Pay with WooCommerce?"
+msgstr ""
+
+#: app/ThirdPartyIntegration/WooCommerce.php:65
+msgid "%s has you covered. Start using Stripe’s powerful API to accept WeChat Pay payments on your WooCommerce store. %s"
+msgstr ""
+
+#: app/ThirdPartyIntegration/WooCommerce/Gateway/Stripe/AliPay.php:11
+msgid "%s - Alipay"
+msgstr ""
+
+#: app/ThirdPartyIntegration/WooCommerce/Gateway/Stripe/AliPay.php:12
+msgid "Accept Alipay payments using your Stripe account."
+msgstr ""
+
+#: app/ThirdPartyIntegration/WooCommerce/Gateway/Stripe/AliPay.php:36
+msgid "You will be redirected to the Alipay website to complete checkout."
+msgstr ""
+
+#: app/ThirdPartyIntegration/WooCommerce/Gateway/Stripe/Skeleton.php:47
+msgid "Is Enabled"
+msgstr ""
+
+#: app/ThirdPartyIntegration/WooCommerce/Gateway/Stripe/Skeleton.php:48
+msgid "Enable %s"
+msgstr ""
+
+#: app/ThirdPartyIntegration/WooCommerce/Gateway/Stripe/Skeleton.php:50
+msgid "Available for currencies : %s"
+msgstr ""
+
+#: app/ThirdPartyIntegration/WooCommerce/Gateway/Stripe/Skeleton.php:54
+msgid "Title"
+msgstr ""
+
+#: app/ThirdPartyIntegration/WooCommerce/Gateway/Stripe/Skeleton.php:56
+msgid "This controls the title which the user sees during checkout."
+msgstr ""
+
+#: app/ThirdPartyIntegration/WooCommerce/Gateway/Stripe/Skeleton.php:61
+msgid "Description"
+msgstr ""
+
+#: app/ThirdPartyIntegration/WooCommerce/Gateway/Stripe/Skeleton.php:63
+msgid "This controls the description which the user sees during checkout."
+msgstr ""
+
+#: app/ThirdPartyIntegration/WooCommerce/Gateway/Stripe/Skeleton.php:67
+msgid "Error Message"
+msgstr ""
+
+#: app/ThirdPartyIntegration/WooCommerce/Gateway/Stripe/Skeleton.php:69
+msgid "Payment failed error message."
+msgstr ""
+
+#: app/ThirdPartyIntegration/WooCommerce/Gateway/Stripe/WeChat.php:11
+msgid "%s - WeChat Pay"
+msgstr ""
+
+#: app/ThirdPartyIntegration/WooCommerce/Gateway/Stripe/WeChat.php:12
+msgid "Accept WeChat Pay payments using your Stripe account."
+msgstr ""
+
+#: app/ThirdPartyIntegration/WooCommerce/Gateway/Stripe/WeChat.php:36
+msgid "A WeChat Pay QR Code will display."
+msgstr ""
+
+#: app/_functions/general.php:74
+msgid "No results found."
+msgstr ""
+
+#: app/_functions/general.php:75
+msgid "Request cancelled"
+msgstr ""
+
+#: app/_functions/general.php:76
+msgid "Failed to fetch asset required to display this section, please refresh and try again, if this error persists, contact support for assistance."
+msgstr ""
+
+#: app/_functions/general.php:126
+msgid "View Dashboard"
+msgstr ""
+
+#: app/_functions/general.php:136
+msgid "Manage Payment Methods"
+msgstr ""
+
+#: lib/migrations/version-1.0.0.php:5
+msgid "Database Migration."
+msgstr ""

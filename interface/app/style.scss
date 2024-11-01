@@ -1,0 +1,60 @@
+@import 'mixins.scss';
+@import 'variables.scss';
+
+body.toplevel_page_china-payments {
+  background : #F4FBFF;
+}
+
+[data-china-payments-component] {
+  width       : 100%;
+  margin      : 0;
+  padding     : 0;
+  font-family : var( --china-payments-font-family );
+
+  @include box-sizing( border-box );
+
+  h1,h2,h3,h4,h5,h6,p,a, ul > li, ol > li {
+    font-family : var( --china-payments-font-family );
+  }
+}
+
+[data-china-payments-display-state="visible"] {
+  @include transition( color 0.45s cubic-bezier(0.23, 1, 0.32, 1) );
+}
+
+[data-china-payments-display-state="hidden"] {
+  display : none !important;
+}
+
+[data-china-payments-display-state="opaque"] {
+  opacity : 0.3 !important;
+}
+
+[data-china-payments-display-state="active"] {
+  color : var( --china-payments-primary-color );
+}
+
+.china-payments-clearfix {
+  clear   : both;
+  float   : none;
+  opacity : 0;
+  display : block;
+}
+
+@import 'style/elements/attribute-based/button.scss';
+@import 'style/elements/attribute-based/hint.scss';
+@import 'style/elements/attribute-based/notification.scss';
+
+@import 'style/elements/class-based/application-loader.scss';
+@import 'style/elements/class-based/popup.scss';
+
+.wc_payment_methods.payment_methods {
+  .wc_payment_method {
+    &.payment_method_china_payments_stripe_wechat,
+    &.payment_method_china_payments_stripe_alipay {
+      label > img {
+        max-width : 100px;
+      }
+    }
+  }
+}

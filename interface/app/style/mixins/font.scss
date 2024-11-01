@@ -1,0 +1,47 @@
+@mixin china-payments-font-default() {
+  font-family : var( --china-payments-font-family );
+  font-size   : var( --china-payments-text-default-font-size );
+  font-style  : var( --china-payments-text-default-font-style );
+  font-weight : var( --china-payments-text-default-font-weight );
+  line-height : var( --china-payments-text-default-line-height );
+  color       : var( --china-payments-text-default-color );
+}
+
+@mixin china-payments-font-small() {
+  font-family : var( --china-payments-font-family );
+  font-size   : var( --china-payments-text-small-font-size );
+  font-style  : var( --china-payments-text-small-font-style );
+  font-weight : var( --china-payments-text-small-font-weight );
+  line-height : var( --china-payments-text-small-line-height );
+  color       : var( --china-payments-text-small-color );
+}
+
+@mixin china-payments-font-medium() {
+  font-family : var( --china-payments-font-family );
+  font-size   : var( --china-payments-text-medium-font-size );
+  font-style  : var( --china-payments-text-medium-font-style );
+  font-weight : var( --china-payments-text-medium-font-weight );
+  line-height : var( --china-payments-text-medium-line-height );
+  color       : var( --china-payments-text-medium-color );
+}
+
+@mixin china-payments-font-standard() {
+  font-family : var( --china-payments-font-family );
+  font-size   : var( --china-payments-text-standard-font-size );
+  font-style  : var( --china-payments-text-standard-font-style );
+  font-weight : var( --china-payments-text-standard-font-weight );
+  line-height : var( --china-payments-text-standard-line-height );
+  color       : var( --china-payments-text-standard-color );
+}
+
+@mixin china-payments-font-title() {
+  font-family : var( --china-payments-font-family );
+  font-size   : var( --china-payments-text-title-font-size );
+  font-style  : var( --china-payments-text-title-font-style );
+  font-weight : var( --china-payments-text-title-font-weight );
+  line-height : var( --china-payments-text-title-line-height );
+  color       : var( --china-payments-text-title-color );
+
+  text-transform  : none;
+  text-decoration : none;
+}

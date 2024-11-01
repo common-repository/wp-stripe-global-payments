@@ -1,0 +1,38 @@
+<# if( data.quick_setup_index !== false && !( data.quick_setup_skipped ) ) { #>
+  <# var current_step = data.quick_setup_steps[ data.quick_setup_index ] #>
+
+  <div data-china-payments-component-admin-dashboard-section="quick-setup">
+    <# if( typeof current_step.sub_title !== 'undefined' && current_step.sub_title !== '' ) { #>
+      <div data-china-payments-component-admin-dashboard-section="sub_title">{{ current_step.sub_title }}</div>
+    <# } #>
+
+    <div data-china-payments-component-admin-dashboard-section="title">{{ current_step.title }}</div>
+    <div data-china-payments-component-admin-dashboard-section="operations">
+      <# if( data.quick_setup_return_index !== false ) { #>
+        <a data-china-payments-component-admin-dashboard-trigger="quick_setup_return">
+          {{ data.lang.quick_setup_return.replace( "%s", data.quick_setup_steps[ data.quick_setup_return_index ].nav_title ) }}
+        </a>
+      <# } #>
+
+      <span data-china-payments-component-admin-dashboard-trigger="quick-setup-exit">{{ data.lang.quick_setup_exit }}</span>
+      <# if( data.quick_setup_skip_index !== false ) { #>
+        <a data-china-payments-component-admin-dashboard-trigger="quick_setup_skip_{{ data.quick_setup_skip_index }}">
+          {{ data.lang.quick_setup_skip_to.replace( "%s", data.quick_setup_steps[ data.quick_setup_skip_index ].nav_title ) }}
+        </a>
+      <# } #>
+    </div>
+  </div>
+<# } else { #>
+  <div data-china-payments-component-admin-dashboard-section="menu_container">
+    <a href="#payment-gateways" data-china-payments-component-admin-dashboard-trigger="hashtag_navigation" data-china-payments-interaction-state="{{ data.current_page === 'payment-gateways' ? 'active' : 'inactive' }}"
+      >{{ data.lang.menu_name_payment_gateways }}</a>
+    <a href="#integrations" data-china-payments-component-admin-dashboard-trigger="hashtag_navigation" data-china-payments-interaction-state="{{ data.current_page === 'integrations' ? 'active' : 'inactive' }}"
+      >{{ data.lang.menu_name_integrations }}</a>
+    <a href="#optimizations" data-china-payments-component-admin-dashboard-trigger="hashtag_navigation" data-china-payments-interaction-state="{{ data.current_page === 'optimizations' ? 'active' : 'inactive' }}"
+      >{{ data.lang.menu_name_optimizations }}</a>
+
+    <# if( data.quick_setup_index !== false ) { #>
+      <span data-china-payments-component-admin-dashboard-trigger="quick-setup">{{ data.lang.quick_setup_resume }}</span>
+    <# } #>
+  </div>
+<# } #>

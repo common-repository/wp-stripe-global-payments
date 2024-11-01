@@ -1,0 +1,77 @@
+@import '../../../mixins.scss';
+
+[data-china-payments-notification] {
+  --china-payments-text-default-color : var( --china-payments-status-neutral-color );
+
+  border         : none;
+  padding        : var( --china-payments-spacing-type-block-wide );
+  display        : block;
+  letter-spacing : 0;
+  margin         : 0;
+  position       : relative;
+  background     : var( --china-payments-status-neutral-background-color );
+  text-decoration: none;
+  @include china-payments-font-default();
+  @include box-shadow( none );
+  @include box-sizing( border-box );
+  @include border-radius( var( --china-payments-layout-border-radius ) );
+
+  > p {
+    margin  : 0;
+    padding : 0;
+  }
+
+  a {
+    margin: 0;
+    padding: 0;
+    border: none;
+    @include box-shadow( none );
+    cursor: pointer;
+    text-decoration: underline;
+    &:hover {
+      border: none;
+    }
+  }
+
+  &:after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+
+  &[data-china-payments-notification="danger"] {
+    color: var( --china-payments-status-danger-color );
+    background: var( --china-payments-status-danger-background-color );
+    a,
+    span {
+      color: var( --china-payments-status-danger-color );
+    }
+  }
+
+  &[data-china-payments-notification="warning"] {
+    color: var( --china-payments-status-warning-color );
+    background: var( --china-payments-status-warning-background-color );
+    a,
+    span {
+      color: var( --china-payments-status-warning-color );
+    }
+  }
+
+  &[data-china-payments-notification="info"] {
+    color: var( --china-payments-status-info-color );
+    background: var( --china-payments-status-info-background-color );
+    a,
+    span {
+      color: var( --china-payments-status-info-color );
+    }
+  }
+
+  &[data-china-payments-notification="success"] {
+    color: var( --china-payments-status-success-color );
+    background: var( --china-payments-status-success-background-color );
+    a,
+    span {
+      color: var( --china-payments-status-success-color );
+    }
+  }
+}

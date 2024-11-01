@@ -1,0 +1,88 @@
+@import '../../../mixins.scss';
+
+@keyframes china_payments_application_loader_rotate_kf {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.china-payments-application-loader-status-text {
+  margin     : 50px 0 0 0 !important;
+  padding    : 0 !important;
+  text-align : center;
+  color      : var( --china-payments-primary-color );
+  font-size  : 16px;
+  font-weight : bold;
+}
+
+.china-payments-application-loader-wrapper {
+  box-sizing: border-box;
+  position: relative;
+  margin: 50px auto;
+  width: 150px;
+  height: 150px;
+  display: block;
+  overflow: hidden;
+  will-change: transform;
+
+  > img {
+    position : absolute;
+    top      : 50%;
+    left     : 50%;
+    margin   : 0 !important;
+    padding  : 0 !important;
+    width    : 50px;
+    height   : 50px;
+
+    @include border-radius( var( --china-payments-layout-border-radius ) );
+    @include transform( translate( -50%, -50% ) );
+  }
+
+  @include box-sizing( border-box !important );
+
+  div {
+    box-sizing: border-box;
+    will-change: transform;
+    height: 100%;
+
+    @include box-sizing( border-box !important );
+  }
+
+  &[data-china-payments-loader-type="mini"] {
+    margin: 5px auto;
+    width: 22px;
+    height: 22px;
+  }
+
+}
+
+.china-payments-application-loader-wrapper[data-china-payments-loader-type="mini"], .china-payments-application-loader-wrapper div {
+  border-radius: 50%;
+  padding: 8px;
+  border: 2px solid transparent;
+  animation: china_payments_application_loader_rotate_kf linear 3.5s infinite;
+
+  border-top-color: var( --china-payments-primary-color );
+  border-left-color: var( --china-payments-secondary-color );
+  animation-timing-function: cubic-bezier(.55, .38, .21, .88);
+  animation-duration: 3s;
+}
+
+.china-payments-application-loader-wrapper[data-china-payments-loader-type="mini"], .china-payments-application-loader-wrapper[data-china-payments-loader-type="mini"] div {
+  padding: 2px;
+}
+
+.china-payments-application-loader-wrapper[data-china-payments-loader-type="danger"], .china-payments-application-loader-wrapper[data-china-payments-loader-type="danger"] div {
+  border-top-color: var( --china-payments-status-danger-color );
+  border-left-color: var( --china-payments-status-warning-color );
+}
+
+.china-payments-application-loader-wrapper:hover, .china-payments-application-loader-wrapper div:hover {
+  animation-play-state: paused;
+}

@@ -1,0 +1,185 @@
+@import '../../../mixins.scss';
+
+[data-china-payments-hint] {
+  position : relative;
+
+  &:before,
+  &:after {
+    position: absolute;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1000000;
+    pointer-events: none;
+    -webkit-transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    transition: 0.3s ease;
+    -webkit-transition-delay: 0ms;
+    -moz-transition-delay: 0ms;
+    transition-delay: 0ms;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition-delay: 100ms;
+    -moz-transition-delay: 100ms;
+    transition-delay: 100ms;
+  }
+
+  &:before {
+    content    : '';
+    position   : absolute;
+    background : transparent;
+    border     : 6px solid transparent;
+    z-index    : 1000001;
+  }
+
+  &:after {
+    padding     : 8px 10px;
+    font-size   : 12px;
+    font-family : var( --china-payments-font-family );
+    line-height : 12px;
+    white-space : nowrap;
+    background  : var( --china-payments-layout-background );
+    color       : var( --china-payments-text-color-primary );
+
+    @include border-radius( var( --china-payments-layout-border-radius ) );
+  }
+
+  &[aria-label]:after {
+    content: attr(aria-label);
+  }
+
+  &[data-china-payments-hint-location="right"],
+  &:not( [data-china-payments-hint-location] ) {
+    &:before,
+    &:after {
+      left: 100%;
+      bottom: 50%;
+    }
+
+    &:before {
+      margin-left   : -11px;
+      margin-bottom : -6px;
+    }
+
+    &:after {
+      margin-bottom: -14px;
+    }
+
+    &:hover {
+      &:before {
+        -webkit-transform: translateX(8px);
+        -moz-transform: translateX(8px);
+        transform: translateX(8px);
+      }
+      &:after {
+        -webkit-transform: translateX(8px);
+        -moz-transform: translateX(8px);
+        transform: translateX(8px);
+      }
+    }
+  }
+
+  &[data-china-payments-hint-location="top"] {
+    &:before,
+    &:after {
+      bottom : 100%;
+      left   : 50%;
+    }
+
+    &:before {
+      margin-bottom : -11px;
+      left          : calc(50% - 6px);
+    }
+
+    &:after {
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      transform: translateX(-50%);
+    }
+
+    &:hover {
+      &:before {
+        -webkit-transform: translateY(-8px);
+        -moz-transform: translateY(-8px);
+        transform: translateY(-8px);
+      }
+      &:after {
+        -webkit-transform: translateX(-50%) translateY(-8px);
+        -moz-transform: translateX(-50%) translateY(-8px);
+        transform: translateX(-50%) translateY(-8px);
+      }
+    }
+  }
+
+  &[data-china-payments-hint-location="bottom"] {
+    &:before,
+    &:after {
+      top: 100%;
+      left: 50%;
+    }
+
+    &:before {
+      left       : calc(50% - 6px);
+      margin-top : -11px;
+    }
+
+    &:after {
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      transform: translateX(-50%);
+    }
+
+    &:hover {
+      &:before {
+        -webkit-transform: translateY(8px);
+        -moz-transform: translateY(8px);
+        transform: translateY(8px);
+      }
+      &:after {
+        -webkit-transform: translateX(-50%) translateY(8px);
+        -moz-transform: translateX(-50%) translateY(8px);
+        transform: translateX(-50%) translateY(8px);
+      }
+    }
+  }
+
+  &[data-china-payments-hint-location="left"] {
+    &:before,
+    &:after {
+      right: 100%;
+      bottom: 50%;
+    }
+
+    &:before {
+      left       : calc(50% - 6px);
+      margin-top : -11px;
+    }
+
+    &:after {
+      margin-bottom: -14px;
+    }
+
+    &:hover {
+      &:before {
+        -webkit-transform: translateX(-8px);
+        -moz-transform: translateX(-8px);
+        transform: translateX(-8px);
+      }
+      &:after {
+        -webkit-transform: translateX(-8px);
+        -moz-transform: translateX(-8px);
+        transform: translateX(-8px);
+      }
+    }
+  }
+
+  &[data-china-payments-hint="danger"] {
+    --china-payments-text-color-primary : var( --china-payments-status-danger-color );
+  }
+}

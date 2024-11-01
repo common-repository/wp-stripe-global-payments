@@ -1,0 +1,218 @@
+<# _.each( data.payment_gateway, function( payment_gateway ) { #>
+  <div data-china-payments-component-admin-dashboard-section="payment_gateway_{{ payment_gateway.alias }}"
+       data-china-payments-gateway-alias="{{ payment_gateway.alias }}"
+       data-china-payments-gateway-mode="{{ payment_gateway.mode }}"
+       data-china-payments-connection-type="{{ payment_gateway.connection_layout }}"
+       data-china-payments-has-payment-methods="1"
+       data-china-payments-has-payment-methods-visible="0"
+  >
+    <div data-china-payments-component-admin-dashboard-section="header">
+      <h2>{{ payment_gateway.name }}</h2>
+
+      <div data-china-payments-component-admin-dashboard-section="connection">
+        <# if( payment_gateway.account_name_test !== '' ) { #>
+          <span data-china-payments-component-admin-dashboard-section="account_name_test">{{ payment_gateway.account_name_test }}</span>
+        <# } #>
+
+        <# if( payment_gateway.account_name_live !== '' ) { #>
+          <span data-china-payments-component-admin-dashboard-section="account_name_live">{{ payment_gateway.account_name_live }}</span>
+        <# } #>
+
+        <# if( payment_gateway.connection_layout === 'authentication' ) { #>
+          <# if( !payment_gateway.mode_live_configured ) { #>
+            <div data-china-payments-component-admin-dashboard-trigger="gateway_connect_live">
+              <span data-china-payments-component-admin-dashboard-section="letter">{{ payment_gateway.name[ 0 ] }}</span>
+              <span data-china-payments-component-admin-dashboard-section="connect">
+                {{ data.lang.payment_gateway_connect.replace( "%s", payment_gateway.name ) }}
+              </span>
+            </div>
+          <# } else { #>
+            <div data-china-payments-component-admin-dashboard-trigger="gateway_disconnect_live">
+              {{ data.lang.payment_gateway_disconnect }}
+            </div>
+          <# } #>
+
+          <# if( !payment_gateway.mode_test_configured ) { #>
+            <div data-china-payments-component-admin-dashboard-trigger="gateway_connect_test">
+              <span data-china-payments-component-admin-dashboard-section="letter">{{ payment_gateway.name[ 0 ] }}</span>
+              <span data-china-payments-component-admin-dashboard-section="connect">
+                  {{ data.lang.payment_gateway_connect.replace( "%s", payment_gateway.name ) }}
+                </span>
+            </div>
+          <# } else { #>
+            <div data-china-payments-component-admin-dashboard-trigger="gateway_disconnect_test">
+              {{ data.lang.payment_gateway_disconnect }}
+            </div>
+          <# } #>
+        <# } else { #>
+          <div data-china-payments-component-admin-dashboard-trigger="gateway_settings_live">
+            <# if( payment_gateway.mode_live_configured ) { #>
+              <span>{{ data.lang.payment_gateway_settings_edit }}</span>
+              <img src="{{{ ChinaPayments.getComponentAssetPath( 'admin-dashboard', 'img/checkmark-integration-active.png' ) }}}" alt="checkmark"/>
+            <# } else { #>
+              <span>{{ data.lang.payment_gateway_settings_set }}</span>
+            <# } #>
+          </div>
+          <div data-china-payments-component-admin-dashboard-trigger="gateway_settings_test">
+            <# if( payment_gateway.mode_test_configured ) { #>
+              <span>{{ data.lang.payment_gateway_settings_edit }}</span>
+              <img src="{{{ ChinaPayments.getComponentAssetPath( 'admin-dashboard', 'img/checkmark-integration-active.png' ) }}}" alt="checkmark"/>
+            <# } else { #>
+              <span>{{ data.lang.payment_gateway_settings_set }}</span>
+            <# } #>
+          </div>
+        <# } #>
+
+        <div data-china-payments-component-admin-dashboard-trigger="gateway_mode">
+            <span data-china-payments-component-admin-dashboard-section="gateway_mode_test"
+                  data-china-payments-interaction-state="{{ payment_gateway.mode_test_configured ? 'active' : 'inactive' }}"
+            >{{ data.lang.payment_gateway_mode_test }}</span>
+
+          <span data-china-payments-component-admin-dashboard-section="gateway_switcher">
+              <label data-china-payments-component-admin-dashboard-trigger="gateway_mode">
+                <input data-china-payments-component-admin-dashboard-trigger="gateway_mode_checkbox" type="checkbox" {{{ payment_gateway.mode === "test" ? 'checked="checked"' : '' }}}>
+                <span></span>
+              </label>
+            </span>
+
+          <span data-china-payments-component-admin-dashboard-section="gateway_mode_live"
+                data-china-payments-interaction-state="{{ payment_gateway.mode_live_configured ? 'active' : 'inactive' }}"
+          >{{ data.lang.payment_gateway_mode_live }}</span>
+        </div>
+      </div>
+    </div>
+    <div data-china-payments-component-admin-dashboard-section="description_container">
+      <img src="{{ payment_gateway.logo }}" alt="{{ payment_gateway.name }}"/>
+      <div>
+        {{{ payment_gateway.description }}}
+
+        <# if( typeof payment_gateway.webhook_settings !== "undefined"
+                && ( payment_gateway.webhook_settings.test_available || payment_gateway.webhook_settings.live_available ) ) { #>
+          <# let _title = ''; #>
+
+          <div data-china-payments-component-admin-dashboard-section="payment_gateway_webhook_settings_container">
+            <# if( payment_gateway.webhook_settings.live_available ) { #>
+              <# _title = payment_gateway.webhook_settings.title_popup + ' <span data-china-payments-mode="live">' + data.lang.payment_gateway_mode_live + '</span>' #>
+
+              <div data-china-payments-component-admin-dashboard-trigger="payment_gateway_webhook_settings_live_{{ payment_gateway.alias }}"
+                   data-china-payments-component-admin-dashboard-args="{{{ _.escape( JSON.stringify( {
+                                    title       : _title,
+                                    description : ( typeof payment_gateway.webhook_settings.live_fields_description !== 'undefined' ? payment_gateway.webhook_settings.live_fields_description : '' ),
+                                    fields      : payment_gateway.webhook_settings.live_fields
+                                 } ) ) }}}">
+                <p>
+                  <span data-china-payments-component-admin-dashboard-section="title">{{{ payment_gateway.webhook_settings.title }}}</span>
+                  <span data-china-payments-mode="live">{{ data.lang.payment_gateway_mode_live }}</span>
+                </p>
+                <# if( parseInt( payment_gateway.webhook_settings.live_configured ) ) { #>
+                <img src="{{{ ChinaPayments.getComponentAssetPath( 'admin-dashboard', 'img/checkmark-integration-active.png' ) }}}" alt="checkmark"/>
+                <# } #>
+              </div>
+            <# } #>
+
+            <# if( payment_gateway.webhook_settings.test_available ) { #>
+              <# _title = payment_gateway.webhook_settings.title_popup + ' <span data-china-payments-mode="test">' + data.lang.payment_gateway_mode_test + '</span>' #>
+
+              <div data-china-payments-component-admin-dashboard-trigger="payment_gateway_webhook_settings_test_{{ payment_gateway.alias }}"
+                   data-china-payments-component-admin-dashboard-args="{{{ _.escape( JSON.stringify( {
+                                    title       : _title,
+                                    description : ( typeof payment_gateway.webhook_settings.test_fields_description !== 'undefined' ? payment_gateway.webhook_settings.test_fields_description : '' ),
+                                    fields      : payment_gateway.webhook_settings.test_fields
+                                 } ) ) }}}">
+                <p>
+                  <span data-china-payments-component-admin-dashboard-section="title">{{{ payment_gateway.webhook_settings.title }}}</span>
+                  <span data-china-payments-mode="test">{{ data.lang.payment_gateway_mode_test }}</span>
+                </p>
+                <# if( parseInt( payment_gateway.webhook_settings.test_configured ) ) { #>
+                <img src="{{{ ChinaPayments.getComponentAssetPath( 'admin-dashboard', 'img/checkmark-integration-active.png' ) }}}" alt="checkmark"/>
+                <# } #>
+              </div>
+            <# } #>
+          </div>
+        <# } #>
+      </div>
+    </div>
+
+    <div data-china-payments-component-admin-dashboard-section="payment_methods_container">
+      <table data-china-payments-component-admin-dashboard-section="payment_methods">
+        <thead>
+          <tr>
+            <th>{{ data.lang.payment_methods_title }}</th>
+            <th>{{ data.lang.payment_methods_status }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <# _.each( payment_gateway.payment_methods, function( payment_method ) { #>
+            <tr>
+              <td>
+                {{{ payment_method.description }}}
+                <# if( !payment_method.is_available ) { #>
+                  <p data-china-payments-component-admin-dashboard-section="upgrade">{{{ data.lang.upgrade_payment_gateway.replace( "%s", payment_method.name ).replace( "%s", '<a href="' + data.upgrade_link + '" target="_blank">' + data.lang.upgrade + '</a>' ) }}}</p>
+                <# } else { #>
+                  <# if( typeof payment_method.settings !== "undefined" ) { #>
+                    <div data-china-payments-component-admin-dashboard-section="payment_method_settings_container">
+                      <# _.each( payment_method.settings, function( information ) { #>
+                        <# let _title = information.title.replace( "%s", '<span data-china-payments-mode="live">' + data.lang.payment_gateway_mode_live + '</span>' ) #>
+
+                        <div data-china-payments-component-admin-dashboard-trigger="payment_method-settings_live_{{ payment_method.alias }}"
+                             data-china-payments-component-admin-dashboard-args="{{{ _.escape( JSON.stringify( {
+                                title       : _title,
+                                description : ( typeof information.live_fields_description !== 'undefined' ? information.live_fields_description : '' ),
+                                fields      : information.live_fields
+                             } ) ) }}}">
+                          <p>{{{ _title }}}</p>
+                          <# if( parseInt( information.live_configured ) ) { #>
+                            <img src="{{{ ChinaPayments.getComponentAssetPath( 'admin-dashboard', 'img/checkmark-integration-active.png' ) }}}" alt="checkmark"/>
+                          <# } #>
+                        </div>
+
+                        <# _title = information.title.replace( "%s", '<span data-china-payments-mode="test">' + data.lang.payment_gateway_mode_test + '</span>' ) #>
+
+                        <div data-china-payments-component-admin-dashboard-trigger="payment_method-settings_test_{{ payment_method.alias }}"
+                             data-china-payments-component-admin-dashboard-args="{{{ _.escape( JSON.stringify( {
+                                title       : _title,
+                                description : ( typeof information.test_fields_description !== 'undefined' ? information.test_fields_description : '' ),
+                                fields      : information.test_fields
+                             } ) ) }}}">
+                          <p>{{{ _title }}}</p>
+                          <# if( parseInt( information.test_configured ) ) { #>
+                          <img src="{{{ ChinaPayments.getComponentAssetPath( 'admin-dashboard', 'img/checkmark-integration-active.png' ) }}}" alt="checkmark"/>
+                          <# } #>
+                        </div>
+                      <# }) #>
+                    </div>
+                  <# } #>
+                <# } #>
+              </td>
+              <td>
+                <# if( payment_method.is_available && ( payment_gateway.mode_live_configured || payment_gateway.mode_test_configured ) ) { #>
+                  <# if( typeof payment_method.requires_https !== 'undefined' && payment_method.requires_https && !parseInt( ChinaPayments.settings.is_https ) ) { #>
+                    <label>
+                      <input type="checkbox"
+                             disabled="disabled"
+                      />
+                      <span data-china-payments-hint="danger"
+                            data-china-payments-hint-location="left"
+                            aria-label="{{ data.lang.payment_method_requires_https }}"></span>
+                    </label>
+                  <# } else { #>
+                    <label>
+                      <input data-china-payments-component-admin-dashboard-trigger="payment_method_{{ payment_method.alias }}"
+                             type="checkbox"
+                             {{{ china_payments_in_array( payment_method.alias, payment_gateway.payment_methods_enabled ) ? 'checked="checked"' : '' }}}
+                      />
+                      <span></span>
+                    </label>
+                  <# } #>
+                <# } #>
+              </td>
+            </tr>
+          <# }) #>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<# }) #>
+
+<div data-china-payments-component="admin-marketing-notifications"
+     data-china-payments-component-args="{{{ _.escape( JSON.stringify( { area_slug : 'payment-gateways' } ) ) }}}"></div>

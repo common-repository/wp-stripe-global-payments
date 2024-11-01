@@ -1,0 +1,36 @@
+<h2 data-china-payments-component-admin-marketing-notifications-section="title">{{ data.name }}</h2>
+<h3 data-china-payments-component-admin-marketing-notifications-section="sub_title">{{ data.description }}</h3>
+
+<ul>
+  <# _.each( data.features, function( feature ) { #>
+  <li data-china-payments-component-admin-marketing-notifications-trigger="pgs_notification_{{ feature.tag }}"
+      data-china-payments-tag="{{ feature.tag }}">
+    <# if( feature.image === '' || feature.image === false ) { #>
+      <p>{{ feature.name }}</p>
+    <# } else { #>
+      <img src="{{ feature.image }}" alt="{{ feature.name }}"/>
+    <# } #>
+  </li>
+  <# }) #>
+</ul>
+
+<form>
+  <div data-china-payments-component-admin-marketing-notifications-section="field_wrap">
+    <div data-china-payments-component-admin-marketing-notifications-section="field_group">
+      <div data-china-payments-component-admin-marketing-notifications-section="field-first_name">
+        <label>{{ data.first_name }}</label>
+        <input type="text" name="first_name" value="{{ data.current_user.first_name }}"/>
+      </div>
+      <div data-china-payments-component-admin-marketing-notifications-section="field-last_name">
+        <label>{{ data.last_name }}</label>
+        <input type="text" name="last_name" value="{{ data.current_user.last_name }}"/>
+      </div>
+    </div>
+    <div data-china-payments-component-admin-marketing-notifications-section="field-email_address">
+      <label>{{ data.email_address }}</label>
+      <input type="text" name="email_address" value="{{ data.current_user.email_address }}"/>
+    </div>
+
+    <span data-china-payments-component-admin-marketing-notifications-trigger="pgs_notification">{{ data.submit_text }}</span>
+  </div>
+</form>

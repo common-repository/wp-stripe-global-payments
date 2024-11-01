@@ -1,0 +1,763 @@
+@import '../../mixins.scss';
+
+@font-face {
+  font-family: Graphik;
+  src: url("../../fonts/graphik-regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Graphik;
+  font-weight : 200;
+  src: url("../../fonts/graphik-extra-light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Graphik;
+  font-weight : 300;
+  src: url("../../fonts/graphik-light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Graphik;
+  font-weight : 500;
+  src: url("../../fonts/graphik-medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Graphik;
+  font-weight : 600;
+  src: url("../../fonts/graphik-semi-bold.otf") format("opentype");
+}
+
+[data-china-payments-component="admin-dashboard"] {
+  --china-payments-font-family : Graphik, serif;
+
+  font-family : Graphik, serif;
+  padding     : 56px 20px 0 0;
+  max-width   : 1300px;
+  margin      : 0 auto;
+
+  > [data-china-payments-component-admin-dashboard-section="logo-container"] {
+    display : flex;
+
+    > img {
+      margin : 0 auto;
+      max-width : 400px;
+    }
+  }
+
+  > [data-china-payments-component-admin-dashboard-section="navigation"] {
+
+    > [data-china-payments-component-admin-dashboard-section="quick-setup"] {
+      background    : var( --china-payments-layout-primary-background-color );
+      box-shadow    : 0 0 32px #C2C8CC54;
+      max-width     : 547px;
+      padding       : 42px 20px 30px 20px;
+      margin        : 20px auto 0 auto;
+
+      animation: 0.5s ease-out 0s 1 china-payments-admin-dashboard-animation;
+
+      @include border-radius( 10px );
+      @include box-sizing( border-box );
+
+      > [data-china-payments-component-admin-dashboard-section="sub_title"] {
+        font-size    : 28px;
+        font-weight  : 300;
+        color        : var( --china-payments-secondary-color);
+        text-align   : center;
+        line-height  : 1.61em;
+      }
+
+      > [data-china-payments-component-admin-dashboard-section="title"] {
+        font-size   : 31px;
+        font-weight : 200;
+        color       : var( --china-payments-primary-color );
+        text-align  : center;
+        line-height  : 1.58em;
+      }
+
+      > [data-china-payments-component-admin-dashboard-section="operations"] {
+        margin      : 25px 0 0 0;
+        text-align  : center;
+
+        > a, span {
+          margin          : 0 0 0 20px;
+          display         : inline-block;
+          color           : var( --china-payments-text-color-primary );
+          font-size       : 16px;
+          line-height     : 1.55em;
+          font-weight     : 300;
+          text-decoration : unset;
+          cursor          : pointer;
+        }
+
+        > *:first-child {
+          margin-left : 0;
+        }
+      }
+
+    }
+
+    > [data-china-payments-component-admin-dashboard-section="menu_container"] {
+      background     : var( --china-payments-layout-primary-background-color );
+      margin         : 40px auto 0 auto;
+      overflow       : hidden;
+      padding        : 20px 20px 0 20px;
+      border         : 1px solid #DAE4F1;
+      display        : flex;
+      flex-direction : row;
+      height         : 58px;
+      align-items    : center;
+      align-content  : center;
+
+      @include border-radius( 10px );
+      @include box-sizing( border-box );
+      @include box-shadow( 0 0 32px #C2C8CC54 );
+
+      > [data-china-payments-component-admin-dashboard-trigger] {
+        color: #6C8DB9;
+        display: inline-block;
+        font-size: 18px;
+        text-decoration: unset;
+        padding-bottom: 15px;
+        cursor : pointer;
+      }
+
+      > [data-china-payments-component-admin-dashboard-trigger="hashtag_navigation"] {
+        margin-right: 40px;
+
+        &:last-child {
+          margin-right : 0;
+        }
+
+        &[data-china-payments-interaction-state="active"],
+        &:hover {
+          border-bottom: 3px solid var( --china-payments-primary-color );
+          color: var( --china-payments-primary-color );
+        }
+      }
+
+      > [data-china-payments-component-admin-dashboard-trigger="quick-setup"] {
+        margin : 0 0 0 auto;
+
+        &:hover {
+          color : var( --china-payments-primary-color );
+        }
+      }
+    }
+
+  }
+
+  > [data-china-payments-component-admin-dashboard-section="container"] {
+    animation: 0.7s ease-out 0s 1 china-payments-admin-dashboard-animation;
+
+    > [data-china-payments-component-admin-dashboard-section^="payment_gateway_"] {
+      display : flex;
+      flex-direction: column;
+      background: var( --china-payments-layout-primary-background-color );
+      border-radius: 10px;
+      margin-top: 40px;
+      overflow: hidden;
+      border-bottom : 1px solid #DAE4F1;
+
+      @include box-sizing( border-box );
+
+      > [data-china-payments-component-admin-dashboard-section="header"] {
+        width      : 100%;
+        background : var( --china-payments-primary-color );
+        padding    : 20px 26px;
+        height     : 80px;
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        align-items: center;
+
+        @include box-sizing( border-box );
+
+        > h2 {
+          color       : #fff;
+          font-size   : 22px;
+          font-weight : 300;
+          margin      : 0;
+          display       : flex;
+          align-content : center;
+          align-items   : center;
+        }
+
+        > [data-china-payments-component-admin-dashboard-section="connection"] {
+          margin         : 0 0 0 auto;
+          display        : flex;
+          flex-direction : row;
+
+          > [data-china-payments-component-admin-dashboard-section^="account_name_"] {
+            color       : #EDF3F9;
+            margin      : auto 25px auto 0;
+            line-height : 1em;
+            font-size   : 16px;
+          }
+
+          > [data-china-payments-component-admin-dashboard-trigger^="gateway_settings_"],
+          > [data-china-payments-component-admin-dashboard-trigger^="gateway_connect_"],
+          > [data-china-payments-component-admin-dashboard-trigger^="gateway_disconnect_"] {
+            background     : #EDF3F9;
+            padding        : 8px 10px;
+            border-radius  : 3px;
+            line-height    : 1.4em;
+            border         : 1px solid #000;
+            cursor         : pointer;
+            margin         : 0 25px 0 0;
+            font-weight    : 500;
+          }
+
+          > [data-china-payments-component-admin-dashboard-trigger^="gateway_settings_"] {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            > img {
+              display : block;
+              height: 10px;
+              margin : 0 0 0 4px;
+            }
+          }
+
+          > [data-china-payments-component-admin-dashboard-trigger^="gateway_connect_"] {
+            > [data-china-payments-component-admin-dashboard-section] {
+              display: inline-block;
+              color: #63758C;
+            }
+
+            > [data-china-payments-component-admin-dashboard-section="letter"] {
+              font-weight: 500;
+              font-size: 18px;
+              border-right: 1px solid #c8d1db;
+              padding-right: 5px;
+              line-height: 1;
+              text-align: center;
+            }
+
+            > [data-china-payments-component-admin-dashboard-section="connect"] {
+              font-size: 14px;
+              margin-left: 5px;
+              font-weight: 600;
+            }
+
+            &:hover > [data-china-payments-component-admin-dashboard-section] {
+              color : var( --china-payments-primary-color );
+            }
+
+            .china-payments-application-loader-wrapper {
+              margin : 0 auto;
+            }
+          }
+
+          > [data-china-payments-component-admin-dashboard-trigger="gateway_mode"] {
+            display: flex;
+            flex-direction: row;
+            align-content: center;
+            align-items: center;
+
+            > [data-china-payments-component-admin-dashboard-section^="gateway_mode_"] {
+              font-size: 15px;
+              color: #fff;
+              border: 1px solid #fff;
+              padding: 8px 15px;
+              text-align: center;
+              line-height: 1;
+
+              @include border-radius( 4px );
+              @include box-sizing( border-box );
+            }
+
+            > [data-china-payments-component-admin-dashboard-section="gateway_mode_test"][data-china-payments-interaction-state="active"] {
+              border-color: #FFD200;
+            }
+
+            > [data-china-payments-component-admin-dashboard-section="gateway_mode_live"][data-china-payments-interaction-state="active"] {
+              border-color: #6CD219;
+            }
+
+            > [data-china-payments-component-admin-dashboard-section="gateway_switcher"] {
+              position : relative;
+              display  : inline-block;
+              width    : 74px;
+              height   : 34px;
+              margin   : 0 15px;
+
+
+              > label {
+                input {
+                  opacity: 0;
+                  width: 0;
+                  height: 0;
+                }
+
+                > span {
+                  position: absolute;
+                  cursor: pointer;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  bottom: 0;
+                  background-color: #fff;
+                  -webkit-transition: .4s;
+                  transition: .4s;
+                  width: 70px;
+                  margin-left: auto;
+                  margin-right: auto;
+                  border-radius: 34px;
+
+                  &:before {
+                    position: absolute;
+                    content: "";
+                    height: 26px;
+                    width: 26px;
+                    right: 4px;
+                    bottom: 4px;
+                    background-color: var( --china-payments-primary-color );
+                    -webkit-transition: .4s;
+                    transition: .4s;
+                    border-radius: 34px;
+                  }
+                }
+
+                input:checked + span {
+                  background-color: #fff;
+
+                  &:before {
+                    -webkit-transform: translateX(-35px);
+                    -ms-transform: translateX(-35px);
+                    transform: translateX(-35px);
+                  }
+                }
+
+                input:focus + span {
+                  box-shadow: 0 0 1px #2196F3;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      > [data-china-payments-component-admin-dashboard-section="description_container"] {
+        width : 100%;
+        padding : 20px;
+        display : flex;
+        flex-direction : row;
+        border-left  : 1px solid #DAE4F1;
+        border-right : 1px solid #DAE4F1;
+
+        @include box-sizing( border-box );
+
+        > img {
+          margin : auto 30px auto 0;
+        }
+
+        > div {
+          color     : var(--china-payments-text-color-primary);
+          font-size : 16px;
+
+          > [data-china-payments-component-admin-dashboard-section="payment_gateway_webhook_settings_container"] {
+            margin         : 15px 0 0 0;
+            display        : flex;
+            flex-direction : row;
+
+            [data-china-payments-mode] {
+              &[data-china-payments-mode="live"] {
+                color : #6CD219;
+              }
+
+              &[data-china-payments-mode="test"] {
+                color : #FFD200;
+              }
+
+              margin : 0 0 0 4px;
+            }
+
+            > [data-china-payments-component-admin-dashboard-trigger] {
+              display        : flex;
+              flex-direction : row;
+              align-content  : center;
+              align-items    : center;
+              margin         : 0 10px 0 0;
+              cursor         : pointer;
+              color          : var( --china-payments-primary-color );
+
+              &:last-child {
+                margin : 0 auto 0 0;
+              }
+
+              > p {
+                display        : flex;
+                flex-direction : row;
+                align-content  : center;
+                align-items    : center;
+                color          : var( --china-payments-primary-color );
+                font-size      : 16px;
+                margin         : 0;
+
+                > [data-china-payments-component-admin-dashboard-section="title"] {
+                  border-bottom  : 1px solid var( --china-payments-primary-color );
+                }
+              }
+
+              > img {
+                display: block;
+                height: 10px;
+                margin: 0 0 0 4px;
+              }
+            }
+          }
+        }
+      }
+
+      > [data-china-payments-component-admin-dashboard-section="payment_methods_container"] {
+        display : none;
+        border-left  : 1px solid #DAE4F1;
+        border-right : 1px solid #DAE4F1;
+
+        > [data-china-payments-component-admin-dashboard-section="payment_methods"] {
+          border-top: 2px solid var( --china-payments-secondary-color );
+          border-spacing:0;
+          border-collapse: collapse;
+          width: 100%;
+
+          > thead {
+            > tr > th {
+              color     : var( --china-payments-secondary-color );
+              font-size : 20px;
+              padding   : 20px 20px 15px 20px;
+              text-align: center;
+              font-weight : 400;
+
+              &:first-child {
+                text-align : left;
+              }
+            }
+          }
+
+          > tbody {
+            > tr {
+              > td {
+                border-top : 1px solid var( --china-payments-secondary-color );
+                padding : 5px 20px 20px 20px;
+                vertical-align: top;
+
+                p {
+                  color     : var( --china-payments-text-default-color );
+                  font-size : 16px;
+                  margin    : 0;
+                  display   : flex;
+                  align-content: center;
+                  align-items: center;
+                  flex-wrap: wrap;
+
+                  > img {
+                    margin     : auto 0 auto 20px;
+                    max-width  : 100px;
+                    max-height : 40px;
+                  }
+
+                  > a {
+                    font-size : 16px;
+                    color : var( --china-payments-primary-color );
+                    margin : 0 0 0 4px;
+                  }
+
+                  &[data-china-payments-component-admin-dashboard-section="upgrade"] {
+                    font-weight : 800;
+                  }
+                }
+
+                > p {
+                  margin    : 15px 0 0 0;
+                }
+
+                .china-payments-application-loader-wrapper {
+                  margin-top : 25px;
+                }
+
+                label {
+                  display: block;
+                  position: relative;
+                  cursor: pointer;
+                  font-size: 22px;
+                  -webkit-user-select: none;
+                  -moz-user-select: none;
+                  -ms-user-select: none;
+                  user-select: none;
+                  margin: 20px auto 0 auto;
+                  width: 27px;
+
+                  > input {
+                    position: absolute;
+                    opacity: 0;
+                    cursor: pointer;
+                    height: 0;
+                    width: 0;
+
+                    &:checked ~ span {
+                      background-color: var( --china-payments-primary-color );
+
+                      &::after {
+                        width: 5px;
+                        height: 10px;
+                        border: solid white;
+                        border-width: 0 3px 3px 0;
+                        -webkit-transform: rotate(45deg);
+                        -ms-transform: rotate(45deg);
+                        transform: rotate(45deg);
+                        display : block;
+                        content : '';
+                        margin: auto 0 8px 0;
+                      }
+                    }
+                  }
+
+                  > span {
+                    display : flex;
+                    align-content: center;
+                    justify-content: center;
+                    height: 25px;
+                    width: 25px;
+                    background-color: #eee;
+                    border-radius: 3px;
+                    border: 1px solid var( --china-payments-primary-color );
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        /**
+        &[data-china-payments-interaction-state="disabled"] {
+          position: relative;
+          cursor  : not-allowed;
+
+          &:before {
+            top            : 0;
+            left           : 0;
+            right          : 0;
+            bottom         : 0;
+            margin         : 0;
+            padding        : 0;
+            z-index        : 50;
+            content        : "";
+            height         : 100%;
+            display        : block;
+            position       : absolute;
+            text-align     : center;
+            vertical-align : top;
+            background     : var( --china-payments-status-neutral-color );
+            opacity        : 0.6;
+          }
+        }
+        **/
+      }
+
+      &[data-china-payments-gateway-mode="test"] {
+        [data-china-payments-component-admin-dashboard-section="account_name_live"],
+        [data-china-payments-component-admin-dashboard-trigger="gateway_settings_live"],
+        [data-china-payments-component-admin-dashboard-trigger="gateway_connect_live"],
+        [data-china-payments-component-admin-dashboard-trigger="gateway_disconnect_live"],
+        [data-china-payments-component-admin-dashboard-trigger^="payment_method-settings_live_"] {
+          display : none !important;
+        }
+
+        [data-china-payments-component-admin-dashboard-section="gateway_mode_test"][data-china-payments-interaction-state="active"] {
+          background: #FFD200;
+        }
+      }
+
+      &[data-china-payments-gateway-mode="live"] {
+        [data-china-payments-component-admin-dashboard-section="account_name_test"],
+        [data-china-payments-component-admin-dashboard-trigger="gateway_settings_test"],
+        [data-china-payments-component-admin-dashboard-trigger="gateway_connect_test"],
+        [data-china-payments-component-admin-dashboard-trigger="gateway_disconnect_test"],
+        [data-china-payments-component-admin-dashboard-trigger^="payment_method-settings_test_"] {
+          display : none !important;
+        }
+
+        [data-china-payments-component-admin-dashboard-section="gateway_mode_live"][data-china-payments-interaction-state="active"] {
+          background: #6CD219;
+        }
+      }
+
+      &[data-china-payments-has-payment-methods="1"] {
+        > [data-china-payments-component-admin-dashboard-section="header"] {
+          > h2 {
+            cursor : pointer;
+
+            &:before {
+              font-family : "Dashicons";
+              content     : "\f345";
+              margin      : 0 5px 0 0;
+            }
+          }
+        }
+      }
+
+      &[data-china-payments-has-payment-methods-visible="1"] {
+        > [data-china-payments-component-admin-dashboard-section="header"] {
+          > h2 {
+            &:before {
+              content: "\f347";
+            }
+          }
+        }
+
+        > [data-china-payments-component-admin-dashboard-section="description_container"] {
+          padding-bottom : 15px;
+        }
+      }
+    }
+
+    > [data-china-payments-component-admin-dashboard-section="integration_list"] {
+      background     : var( --china-payments-layout-primary-background-color );
+      margin         : 40px auto 0 auto;
+      overflow       : hidden;
+      padding        : 30px;
+      border         : 1px solid #DAE4F1;
+      display               : grid;
+      grid-template-columns : repeat(3, 1fr);
+      gap                   : 50px 30px;
+
+      @include border-radius( 10px );
+      @include box-sizing( border-box );
+
+      > [data-china-payments-component-admin-dashboard-section="integration_information"] {
+        display: flex;
+        flex-direction: column;
+
+        > img {
+          display: block;
+          margin: 0 auto;
+          max-width : 128px;
+          max-height : 128px;
+        }
+
+        > p {
+          padding     : 10px;
+          color       : #6798DB;
+          font-size   : 20px;
+          font-weight : 400;
+          display        : flex;
+          flex-direction : row;
+          align-items    : center;
+          align-content  : center;
+          margin         : var( --china-payments-spacing-type-block-element ) auto;
+
+          > span {
+            margin: 0 5px;
+          }
+
+          > img {
+            max-height : 16px;
+            margin : 0 0 0 10px;
+          }
+        }
+
+        > a,
+        > [data-china-payments-component-admin-dashboard-trigger] {
+          font-weight : 500;
+          font-size   : 16px;
+          text-align  : center;
+          color           : #fff;
+          display         : block;
+          padding         : 12px 10px 10px 10px;
+          text-decoration : unset;
+          line-height     : 1;
+          cursor          : pointer;
+          margin          : 0 auto;
+          background      : transparent linear-gradient(90deg, var( --china-payments-primary-color ) 0%, var( --china-payments-secondary-color ) 100%) 0 0 no-repeat padding-box;
+
+          @include border-radius( 10px );
+
+          > .china-payments-application-loader-wrapper[data-china-payments-loader-type="mini"] {
+            margin : 0 auto;
+          }
+
+          &[disabled="disabled"] {
+            background : var( --china-payments-status-neutral-background-color );
+            color      : var( --china-payments-text-color-primary );
+            cursor : not-allowed;
+          }
+        }
+
+        > [data-china-payments-notification] {
+          margin : 20px 0 0 0;
+        }
+      }
+
+      [data-china-payments-component-admin-dashboard-section="placeholder"]{
+        text-align   : center;
+        color        : var( --china-payments-primary-color );
+        font-weight  : 400;
+        font-size    : 27px;
+        line-height  : 33px;
+        display       : flex;
+        align-content : center;
+        align-items   : center;
+
+        > span {
+          display: block;
+          width: 100%;
+        }
+      }
+
+      &[data-china-payments-template-count-odd="0"] {
+        [data-china-payments-component-admin-dashboard-section="placeholder"]{
+          grid-column: 1 / -1;
+        }
+      }
+    }
+
+    > [data-china-payments-component-admin-dashboard-section="optimizations_list"] {
+      background     : var( --china-payments-layout-primary-background-color );
+      margin         : 40px auto 0 auto;
+      overflow       : hidden;
+      padding        : 30px;
+      border         : 1px solid #DAE4F1;
+    }
+  }
+
+  @media (max-width: $break_point_x_large_width) {
+    > [data-china-payments-component-admin-dashboard-section="container"] {
+      > [data-china-payments-component-admin-dashboard-section="integration_list"] {
+        grid-template-columns : repeat(2, 1fr);
+        gap                   : 40px 20px;
+
+        > [data-china-payments-component-admin-dashboard-section="integration_information"] {
+          > [data-china-payments-component-admin-dashboard-section="template_operations"] {
+            > [data-china-payments-component-admin-dashboard-trigger],
+            > [data-china-payments-component-admin-dashboard-section] {
+              font-size : 22px;
+              padding   : 15px 0 13px 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: $break_point_medium_width) {
+    > [data-china-payments-component-admin-dashboard-section="container"] {
+      > [data-china-payments-component-admin-dashboard-section="integration_list"] {
+        grid-template-columns : 100%;
+        gap                   : 20px 20px;
+        padding               : 20px;
+      }
+    }
+  }
+}
+
+@keyframes china-payments-admin-dashboard-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity : 1;
+  }
+}

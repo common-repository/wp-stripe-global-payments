@@ -1,0 +1,17 @@
+<div data-china-payments-component-admin-dashboard-section="logo-container">
+  <img src="{{{ ChinaPayments.getComponentAssetPath( 'admin-dashboard', 'img/logo.png' ) }}}"/>
+</div>
+
+<div data-china-payments-component-admin-dashboard-section="navigation">
+  {{{ ChinaPayments.Template.get( 'admin-dashboard', 'template/_navigation.html', data ) }}}
+</div>
+
+<div data-china-payments-component-admin-dashboard-section="container">
+  <# if( data.current_page === 'payment-gateways' ) { #>
+    {{{ ChinaPayments.Template.get( 'admin-dashboard', 'template/_payment-gateways.html', data ) }}}
+  <# } else if( data.current_page === 'integrations' ) { #>
+  {{{ ChinaPayments.Template.get( 'admin-dashboard', 'template/_integrations.html', data ) }}}
+  <# } else { #>
+    {{{ ChinaPayments.Template.get( 'admin-dashboard', 'template/_optimizations.html', data ) }}}
+  <# } #>
+</div>
